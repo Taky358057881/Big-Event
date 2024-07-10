@@ -1,0 +1,56 @@
+# 用户相关接口
+
+###
+# @name 注册
+POST localhost:8080/user/register
+#Authorization: 
+Content-Type: application/x-www-form-urlencoded
+
+username=wangba&password=123456
+
+###
+# @name 登录
+POST localhost:8080/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=wangba&password=234567
+
+###
+# @name 获取用户详细信息
+//< {%
+    // TODO: 您可以在此处添加 Pre-request 处理程序
+//%}
+GET localhost:8080/user/userInfo
+
+###
+# @name 更新用户基本信息
+PUT localhost:8080/user/update
+Content-Type: application/json
+
+{
+    "id":5,
+    "username":"wangba",
+    "nickname":"wb",
+    "email":"wb@itcast.cn"
+}
+
+###
+# @name 更新用户头像
+PATCH localhost:8080/user/updateAvatar?
+    avatarUrl=https://big-event-gwd.oss-cn-beijing.aliyuncs.com/9bf1cf5b-1420-4c1b-91ad-e0f4631cbed4.png
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+###
+# @name 更新用户密码
+PATCH localhost:8080/user/updatePwd
+Content-Type: application/json
+
+{
+    "old_pwd":"123456",
+    "new_pwd":"234567",
+    "re_pwd":"234567"
+}
