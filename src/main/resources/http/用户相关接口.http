@@ -26,6 +26,7 @@ GET localhost:8080/user/userInfo
 # @name 更新用户基本信息
 PUT localhost:8080/user/update
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMDgzNjI4Nn0.a2WTALTG-mFt4tF0OySnDCo_pIhfWY2F8uWi6ToGaGM
 
 {
     "id":4,
@@ -39,6 +40,7 @@ Content-Type: application/json
 PATCH localhost:8080/user/updateAvatar?
     avatarUrl=https://big-event-gwd.oss-cn-beijing.aliyuncs.com/9bf1cf5b-1420-4c1b-91ad-e0f4631cbed4.png
 Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMDgzNjI4Nn0.a2WTALTG-mFt4tF0OySnDCo_pIhfWY2F8uWi6ToGaGM
 
 --WebAppBoundary
 
@@ -48,9 +50,10 @@ Content-Type: multipart/form-data; boundary=WebAppBoundary
 # @name 更新用户密码
 PATCH localhost:8080/user/updatePwd
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMDgzNjI4Nn0.a2WTALTG-mFt4tF0OySnDCo_pIhfWY2F8uWi6ToGaGM
 
 {
-    "old_pwd":"123456",
-    "new_pwd":"234567",
-    "re_pwd":"234567"
+    "old_pwd":"234567",
+    "new_pwd":"123456",
+    "re_pwd":"123456"
 }

@@ -7,7 +7,9 @@ import com.itheima.utils.JwtUtil;
 import com.itheima.utils.Md5Util;
 import com.itheima.utils.ThreadLocalUtil;
 import jakarta.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,8 +46,9 @@ public class UserController {
 
         if(Md5Util.getMD5String(password).equals(loginUser.getPassword())){
             Map<String, Object> claims = new HashMap<>();
-            claims.put("id", loginUser.getUsername());
+            claims.put("id", loginUser.getId());
             claims.put("username", loginUser.getUsername());
+            System.out.println(claims);
             String token = JwtUtil.genToken(claims);
             return Result.success(token);
         }
@@ -62,8 +65,45 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public Result update(@RequestBody @Validated final User user) {
-        userService.update(user);
+    public Result<String> update(@RequestBody @Validated User user) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer id = (Integer) map.get("id");
+        if (user.getId().equals(id)) {
+            userService.update(user);
+            return Result.success();
+        } else {
+            return Result.error("非本人id");
+        }
+    }
+
+    @PatchMapping("/updateAvatar")
+    public Result updateAvatar(@RequestParam @URL String avatarUrl){
+        userService.updateAvatar(avatarUrl);
+        return Result.success();
+    }
+
+    @PatchMapping("/updatePwd")
+    public Result updatePwd(@RequestBody Map<String, String> params){
+        String oldPwd = params.get("old_pwd");
+        String newPwd = params.get("new_pwd");
+        String rePwd = params.get("re_pwd");
+
+        if(!StringUtils.hasLength(oldPwd) || !StringUtils.hasLength(newPwd) || !StringUtils.hasLength(rePwd)){
+            return Result.error("缺少必要参数");
+        }
+
+        Map<String, Object> map = ThreadLocalUtil.get();
+        String username = (String) map.get("username");
+        User loginUser = userService.findByUserName(username);
+        if(!loginUser.getPassword().equals(Md5Util.getMD5String(oldPwd))){
+            return Result.error("原密码填写不正确");
+        }
+
+        if(!rePwd.equals(newPwd)){
+            return Result.error("两次填写的新密码不一样");
+        }
+
+        userService.updatePwd(newPwd);
         return Result.success();
     }
 
