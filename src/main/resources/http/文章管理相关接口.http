@@ -1,0 +1,51 @@
+# 文章管理相关接口
+
+###
+# @name 发布文章
+POST localhost:8080/article
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+{
+  "title": "百色旅游攻略",
+  "content": "右江...爱去哪去哪...",
+  "coverImg": "https://big-event-gwd.oss-cn-beijing.aliyuncs.com/9bf1cf5b-1420-4c1b-91ad-e0f4631cbed4.png",
+  "state": "草稿",
+  "categoryId": 2
+}
+
+###
+# @name 更新文章
+PUT localhost:8080/article
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+{
+  "id": 2,
+  "title": "北京旅游攻略",
+  "content": "天安门,颐和园,鸟巢,长城...爱去哪去哪...",
+  "coverImg": "https://big-event-gwd.oss-cn-beijing.aliyuncs.com/9bf1cf5b-1420-4c1b-91ad-e0f4631cbed4.png",
+  "state": "已发布",
+  "categoryId": 2
+}
+
+###
+# @name 获取文章详情
+GET localhost:8080/article/detail?
+    id=1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+###
+# @name 删除文章
+DELETE localhost:8080/article?
+    id=4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+###
+# @name 文章列表(条件分页)
+GET localhost:8080/article?
+    pageNum=1&
+    pageSize=3&
+    categoryId=2&
+    state=草稿
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
