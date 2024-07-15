@@ -1,0 +1,41 @@
+# 文章分类相关接口
+
+###
+# @name 文章分类列表
+GET localhost:8080/category
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+###
+# @name 新增文章分类
+POST localhost:8080/category
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+{
+  "categoryName": "文学",
+  "categoryAlias": "wx"
+}
+
+###
+# @name 更新文章分类
+PUT localhost:8080/category
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+{
+  "id": 2,
+  "categoryName": "军事",
+  "categoryAlias": "js"
+}
+
+###
+# @name 获取文章分类详情
+GET localhost:8080/category/detail?
+    id=2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
+
+###
+# @name 删除文章分类
+DELETE localhost:8080/category?
+    id=3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTA3NzUzOH0.OdE3C0j1yRGPhNeXLHegRkqIK9xg7vc6xSymvAECvkc
