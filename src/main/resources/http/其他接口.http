@@ -1,0 +1,13 @@
+# 其他接口
+
+###
+# @name 文件上传
+POST localhost:8080/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTE2MDE5N30.FhsRYfjjUcC0tLnW01HtRx3erOMtYLWlpO4mF8KKtMI
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="1 (2).JPG"
+
+< /C:/Users/TakyL/Desktop/1 (2).JPG
+--WebAppBoundary

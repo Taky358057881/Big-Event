@@ -21,6 +21,7 @@ username=wangba&password=123456
     // TODO: 您可以在此处添加 Pre-request 处理程序
 //%}
 GET localhost:8080/user/userInfo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTE3MDczMH0.FhKzWMXYB5Ajxnkpr2R61Ejb7DscfKkUT3aHJZk21vA
 
 ###
 # @name 更新用户基本信息
@@ -50,7 +51,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVz
 # @name 更新用户密码
 PATCH localhost:8080/user/updatePwd
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMDgzNjI4Nn0.a2WTALTG-mFt4tF0OySnDCo_pIhfWY2F8uWi6ToGaGM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjQsInVzZXJuYW1lIjoid2FuZ2JhIn0sImV4cCI6MTcyMTE3MDczMH0.FhKzWMXYB5Ajxnkpr2R61Ejb7DscfKkUT3aHJZk21vA
 
 {
     "old_pwd":"234567",
